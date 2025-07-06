@@ -1,0 +1,250 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penny Juice</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <script src="https://kit.fontawesome.com/6085d9783b.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Lato:wght@400;700&family=Racing+Sans+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <!-- Navigation Bar -->
+ <div class="navbar">
+    <a href="index.html" class="logo"><img src="pic/logo.png" alt="Pennyjuice Logo" /></a>
+    <nav>
+      <a href="index.html" class="gaegu-regular"><b>HOME</b></a>
+      <a href="aboutus1.html" class="gaegu-regular"><b>ABOUT US</b></a>
+      <a href="menu.html" class="gaegu-regular"><b>PRODUCTS</b></a>
+      <a href="do's and dont's.html" class="gaegu-regular"><b>DO'S & DON'TS</b></a>
+      <a href="enquiry.html" class="gaegu-regular"><b>ENQUIRY</b></a>
+      <a href="cart.html" class="cart-icon" style="color:yellow">
+        <i class="fa-solid fa-cart-plus"></i>
+        <span id="cartBadge" class="cart-badge" style="display: none;">0</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner-container">
+    <img src="pic/buah2.jpg" alt="Banner" style="width:100%;">
+    <h1 class="centered gaegu-regular"><b>HELLO! WELCOME TO PENNY JUICE</b></h1>
+  </div>
+
+ <!-- Bestseller Section -->
+<section class="bestseller-section">
+  <h2 class="racing-sans-one-regular" style="margin-bottom: 0; color: #0097b2">OUR</h2>
+  <h2 class="racing-sans-one-regular" style="margin-top: 0; color: #f77e00">BESTSELLER !</h2>
+
+  <div class="carousel-container">
+    <button class="carousel-btn left">&#xab;</button>
+
+    <div class="card-carousel">
+      <div class="card-slider">
+        <div class="product-card lato-bold">
+          <div class="image-container">
+            <img src="pic/product1.jpg" alt="Strawberry Splash">
+          </div>
+          <p>Strawberry Splash</p>
+        </div>
+        <div class="product-card lato-bold">
+          <div class="image-container">
+            <img src="pic/product2.jpg" alt="Mango Twist">
+          </div>
+          <p>Mango Twist</p>
+        </div>
+        <div class="product-card lato-bold">
+          <div class="image-container">
+            <img src="pic/product3.jpg" alt="Green Apple Zing">
+          </div>
+          <p>Green Apple Zing</p>
+        </div>
+        <div class="product-card lato-bold">
+          <div class="image-container">
+            <img src="pic/product4.jpeg" alt="Berry Boom">
+          </div>
+          <p>Berry Boom</p>
+        </div>
+        <div class="product-card lato-bold">
+          <div class="image-container">
+            <img src="pic/product5.png" alt="Tropical Punch">
+          </div>
+          <p>Tropical Punch</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-btn right">&#xbb;</button>
+  </div>
+
+  <div class="button-wrapper">
+    <button class="button"><span><b>More flavours!</b></span></button>
+  </div>
+</section>
+
+
+  <!-- Know More Section -->
+  <section class="know-more-wrapper">
+    <table class="know-more">
+      <tr>
+        <td class="image-td">
+          <img src="pic/product1.jpg" alt="Our Origin" style="width:75%; height:300px; object-fit:cover;">
+        </td>
+        <td class="text-td">
+          <h2 class="racing-sans-one-regular">Our Origin</h2>
+          <p class="lato-regular">Discover the journey of how Penny Juice started...</p>
+          <button class="know-more-btn lato-regular"><b>Get to know more!</b></button>
+        </td>
+      </tr>
+      <tr>
+        <td class="text-td">
+          <h2 class="racing-sans-one-regular">Being Our Best</h2>
+          <p class="lato-regular">We grew with love and feedback from our customers...</p>
+          <button class="know-more-btn lato-regular"><b>Get to know more!</b></button>
+        </td>
+        <td class="image-td">
+          <img src="pic/product2.jpg" alt="Our Growth" style="width:75%; height:300px; object-fit:cover;">
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer lato-regular">
+    <div class="footer-content">
+      <p class="lato-regular">&copy; 2025 Penny Juice. It Makes Cents.</p>
+      <p class="lato-regular">The content on this website is owned by us and our licensors. Do not copy any content (including images) without our consent.</p>
+    </div>
+  </footer>
+  
+<script>
+  window.addEventListener('load', () => {
+    const slider = document.querySelector('.card-slider');
+    const leftBtn = document.querySelector('.carousel-btn.left');
+    const rightBtn = document.querySelector('.carousel-btn.right');
+    const card = slider.querySelector('.product-card');
+    const gap = 20;
+
+    let currentIndex = 0;
+
+    function getVisibleCards() {
+      const carouselWidth = document.querySelector('.card-carousel').offsetWidth;
+      return Math.floor(carouselWidth / (card.offsetWidth + gap));
+    }
+
+    function updateSlider() {
+      const cardWidth = card.offsetWidth + gap;
+      slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    function slideNext() {
+      const totalCards = slider.querySelectorAll('.product-card').length;
+      if (currentIndex < totalCards - getVisibleCards()) {
+        currentIndex++;
+        updateSlider();
+      }
+    }
+
+    function slidePrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    }
+
+    leftBtn.addEventListener('click', slidePrev);
+    rightBtn.addEventListener('click', slideNext);
+    window.addEventListener('resize', updateSlider);
+
+    updateSlider(); // Initialize
+  });
+</script>
+
+
+<script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+// Cart functionality
+  function getCart() {
+    const cart = JSON.parse(localStorage.getItem('pennyJuiceCart') || '[]');
+    return cart;
+  }
+
+  function saveCart(cart) {
+    localStorage.setItem('pennyJuiceCart', JSON.stringify(cart));
+    updateCartBadge();
+  }
+
+  function updateCartBadge() {
+    const cart = getCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const badge = document.getElementById('cartBadge');
+    
+    if (totalItems > 0) {
+      badge.textContent = totalItems;
+      badge.style.display = 'flex';
+    } else {
+      badge.style.display = 'none';
+    }
+  }
+
+  function addToCart() {
+    if (!currentProduct) return;
+    
+    if (!selectedSize) {
+      alert('Please select a size before adding to cart');
+      return;
+    }
+
+    const cart = getCart();
+    const productId = `${currentProduct.name}-${selectedSize.label}`;
+    
+    // Check if item already exists in cart
+    const existingItemIndex = cart.findIndex(item => item.id === productId);
+    
+    if (existingItemIndex > -1) {
+      // Update quantity of existing item
+      cart[existingItemIndex].quantity += currentQty;
+    } else {
+      // Add new item to cart
+      const cartItem = {
+        id: productId,
+        name: currentProduct.name,
+        price: parseFloat(selectedSize.price),
+        size: selectedSize.label,
+        quantity: currentQty,
+        image: currentProduct.image
+      };
+      cart.push(cartItem);
+    }
+    
+    saveCart(cart);
+    showSuccessMessage();
+    closeModal();
+  }
+</script>
+
+</body>
+</html>

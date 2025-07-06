@@ -1,0 +1,248 @@
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #6b9d9e;
+  flex-wrap: wrap;
+}
+.logo {
+  padding: 10px 15px;
+}
+.logo img {
+  height: 40px;
+  width: 250px;
+  object-fit: contain;
+}
+.navbar nav {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.navbar nav a {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  transition: background-color 0.3s;
+  font-family: 'Gaegu', cursive;
+}
+.navbar nav a:hover {
+  background-color: #95B9C7;
+}
+@media screen and (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar nav {
+    width: 100%;
+    flex-direction: column;
+  }
+  .navbar nav a {
+    text-align: left;
+  }
+  .logo {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* FONT CLASSES */
+.gaegu-regular {
+  font-family: "Gaegu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.racing-sans {
+  font-family: 'Racing Sans One', cursive;
+}
+.lato {
+  font-family: 'Lato', sans-serif;
+}
+
+/* BANNER */
+.banner-container {
+  position: relative;
+  text-align: center;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5em;
+  font-family: 'Gaegu', cursive;
+}
+
+/* OUR BACKGROUND SECTIONS */
+.background.yellow {
+    background-image: url('pic/bg2.png');
+    background-repeat: repeat;
+    background-size: auto;
+    padding: 40px 20px;
+  }
+.background {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 10%;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.background.yellow {
+  background-color: #ffe261;
+  color: #b3411a;
+}
+.background.pink {
+  background-color: #ec6179;
+  color: white;
+}
+.background .text {
+  flex: 1;
+  min-width: 250px;
+  font-family: 'Lato', sans-serif;
+}
+.background .text h2 {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 2em;
+}
+.background .image {
+  flex: 1;
+  min-width: 250px;
+}
+.background .image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* REVIEW SECTION */
+.review-section {
+    background-image: url('pic/bg2.png');
+    background-repeat: repeat;
+    background-size: auto;
+    padding: 40px 20px;
+  }
+.review-section {
+  background-color: #FFE65E;
+  padding: 50px 20px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.review-title {
+  font-family: "Racing Sans One", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #C03C57;
+}
+
+.review-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  padding: 0 40px;
+}
+
+.review-card {
+  background-color: #C03C57;
+  color: white;
+  border-radius: 15px;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 20px;
+  flex-shrink: 0;
+  font-family: 'Lato', sans-serif;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.review-text {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.review-author {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.review-author span {
+  font-weight: normal;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  color: #C03C57;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+
+/* FOOTER */
+.site-footer {
+  background-color: #6b9d9e;
+  color: white;
+  text-align: center;
+  padding: 5px 3px;
+  font-family: 'Comic Sans MS', sans-serif;
+}
+.site-footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+.site-footer a:hover {
+  color: #ffc107;
+}
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*Top button*/
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #be3855;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}

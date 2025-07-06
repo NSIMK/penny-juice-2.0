@@ -1,0 +1,474 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penny Juice</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <script src="https://kit.fontawesome.com/6085d9783b.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Lato:wght@400;700&family=Racing+Sans+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+
+<body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+  
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="index.html" class="logo"><img src="pic/logo.png" alt="Pennyjuice Logo" /></a>
+    <nav>
+      <a href="index.html" class="gaegu-regular"><b>HOME</b></a>
+      <a href="aboutus1.html" class="gaegu-regular"><b>ABOUT US</b></a>
+      <a href="menu.html" class="gaegu-regular"><b>PRODUCTS</b></a>
+      <a href="do's and dont's.html" class="gaegu-regular"><b>DO'S & DON'TS</b></a>
+      <a href="enquiry.html" class="gaegu-regular"><b>ENQUIRY</b></a>
+      <a href="cart.html" class="cart-icon" style="color:yellow">
+        <i class="fa-solid fa-cart-plus"></i>
+        <span id="cartBadge" class="cart-badge" style="display: none;">0</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner-container">
+    <img src="pic/buah2.jpg" alt="Banner" style="width:100%;">
+    <h1 class="centered gaegu-regular"><b>HELLO! WELCOME TO PENNY JUICE</b></h1>
+  </div>
+
+<!-- Contact Us Section -->
+  <section class="contactus-section">
+	  <h2 class="racing-sans-one-regular" style="margin-bottom: 0; color: #0097b2">CONTACT</h2>
+	  <h2 class="racing-sans-one-regular" style="margin-top: 0; color: #f77e00">US !</h2>  
+		  
+		  <div class="contact-container">
+		    <div class="contact">
+			  <div class="contact-box">
+				<p><strong>Penny Juice of America</strong><br>
+				915 40th Ave Bettendorf, IA 52722</p>
+				<p>we're available 24/7 !</p>
+			  </div>
+			  <div class="contactimage-box"></div>
+			</div>
+		  </div>
+  </section>
+  
+	
+<!-- Main Contact Section -->
+    <section class="main-contact">
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <h2 class="section-title">Lets get in touch</h2>
+                <div class="form-content">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" name="firstname" required>
+                        </div>
+						
+						<div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" name="lastname" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+						<div class="form-group">
+                            <label for="company">Company / Organization</label>
+							<input type="text" id="company" name="company">
+                        </div>
+						
+						<div class="form-group">
+                            <label for="enquiry-type">Subject</label>
+								<select id="enquiry-type" name="enquiry-type" required>
+								  <option value="">Select an option</option>
+								  <option value="general">General Inquiry</option>
+								  <option value="support">Support Request</option>
+								  <option value="sales">Sales / Pricing</option>
+								</select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+                        </div>
+						
+						<div class="form-group">
+                            <label>Rate us:</label>
+                            <div class="rating-stars">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <input type="hidden" id="rating" name="rating" value="0">
+                        </div>
+                        
+						<div class="form-group">
+                            <label for="referral-source">How Did You Hear About Us?</label>
+								<select id="referral-source" name="referral-source">
+								  <option value="">Select an option</option>
+								  <option value="social">Social Media</option>
+								  <option value="google">Google Search</option>
+								  <option value="friend">Friend/Family Referral</option>
+								</select>
+                        </div>
+						
+						<div class="form-group">
+                            <label for="urgency">Urgency Level</label>
+								<select id="urgency" name="urgency">
+								  <option value="low">Low (General Inquiry)</option>
+								  <option value="medium">Medium (Reply in 2-3 days)</option>
+								  <option value="high">High (Urgent)</option>
+								</select>
+                        </div>
+						
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+            
+<!--SOCIAL MEDIA-->	
+	
+            <div class="contact-form">
+                <h2 class="section-title">Get closer with us through:</h2>
+                
+				<div class="form-content">
+
+			
+			    <!-- Facebook -->
+				<div class="social-item">
+					<div class="social-header" onclick="toggleDropdown(this)">
+						<div class="social-icon facebook">f</div>
+						<div class="social-text">Facebook</div>
+						<div class="dropdown-arrow">⌄</div>
+					</div>
+					<div class="dropdown-content">
+						<div class="dropdown-inner">
+							<div class="social-image">
+								<img src="pic/facebook.png" alt="Facebook Page Preview">
+							</div>
+							<div class="social-links">
+								<a href="https://facebook.com/pennyjuice" class="social-link" target="_blank">Visit Our Facebook Page</a>
+								<a href="https://facebook.com/pennyjuice/events" class="social-link" target="_blank">Check Our Events</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Twitter -->
+				<div class="social-item">
+					<div class="social-header" onclick="toggleDropdown(this)">
+						<div class="social-icon twitter">𝕏</div>
+						<div class="social-text">Twitter</div>
+						<div class="dropdown-arrow">⌄</div>
+					</div>
+					<div class="dropdown-content">
+						<div class="dropdown-inner">
+							<div class="social-image">
+								<img src="https://via.placeholder.com/200x120/000000/ffffff?text=Twitter+Feed" alt="Twitter Feed Preview">
+							</div>
+							<div class="social-links">
+								<a href="https://twitter.com/pennyjuice" class="social-link" target="_blank">Follow Us on Twitter</a>
+								<a href="https://twitter.com/search?q=%23pennyjuice" class="social-link" target="_blank">See #PennyJuice Posts</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Phone Number -->
+				<div class="social-item">
+					<div class="social-header" onclick="toggleDropdown(this)">
+						<div class="social-icon phone">📞</div>
+						<div class="social-text">Phone Number</div>
+						<div class="dropdown-arrow">⌄</div>
+					</div>
+					<div class="dropdown-content">
+						<div class="dropdown-inner">
+							<div class="phone-info">
+								<strong>Customer Service:</strong><br>
+								📞 +1 (555) 123-JUICE<br>
+								🕒 Available 24/7<br><br>
+								<strong>Sales Inquiries:</strong><br>
+								📞 +1 (555) 456-SALE<br>
+								🕒 Mon-Fri 9AM-6PM EST
+							</div>
+							<div class="social-links">
+								<a href="tel:+15551234823" class="social-link">Call Customer Service</a>
+								<a href="tel:+15554567253" class="social-link">Call Sales</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- E-mail -->
+				<div class="social-item">
+					<div class="social-header" onclick="toggleDropdown(this)">
+						<div class="social-icon email">✉</div>
+						<div class="social-text">E-mail</div>
+						<div class="dropdown-arrow">⌄</div>
+					</div>
+					<div class="dropdown-content">
+						<div class="dropdown-inner">
+							<div class="phone-info">
+								<strong>General Inquiries:</strong><br>
+								✉️ info@pennyjuice.com<br><br>
+								<strong>Customer Support:</strong><br>
+								✉️ support@pennyjuice.com<br><br>
+								<strong>Business Partnerships:</strong><br>
+								✉️ business@pennyjuice.com
+							</div>
+							<div class="social-links">
+								<a href="mailto:info@pennyjuice.com" class="social-link">Send General Inquiry</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Fax -->
+				<div class="social-item">
+					<div class="social-header" onclick="toggleDropdown(this)">
+						<div class="social-icon fax">📠</div>
+						<div class="social-text">Fax</div>
+						<div class="dropdown-arrow">⌄</div>
+					</div>
+					<div class="dropdown-content">
+						<div class="dropdown-inner">
+							<div class="phone-info">
+								<strong>Main Fax Line:</strong><br>
+								📠 +1 (555) 123-FAXX<br><br>
+								<strong>Order Processing:</strong><br>
+								📠 +1 (555) 456-ORDR<br><br>
+								<em>Please include your contact information and order reference number when faxing documents.</em>
+							</div>
+							<div class="social-links">
+								<a href="tel:+15551234299" class="social-link">Call to Confirm Fax Receipt</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+            </div>
+        </div>
+    </section>	
+	
+  <!-- Footer -->
+  <footer class="site-footer lato-regular">
+    <div class="footer-content">
+      <p class="lato-regular">&copy; 2025 Penny Juice. It Makes Cents.</p>
+      <p class="lato-regular">The content on this website is owned by us and our licensors. Do not copy any content (including images) without our consent.</p>
+    </div>
+  </footer>
+  
+<script>
+  window.addEventListener('load', () => {
+    const slider = document.querySelector('.card-slider');
+    const leftBtn = document.querySelector('.carousel-btn.left');
+    const rightBtn = document.querySelector('.carousel-btn.right');
+    const card = slider.querySelector('.product-card');
+    const gap = 20;
+
+    let currentIndex = 0;
+
+    function getVisibleCards() {
+      const carouselWidth = document.querySelector('.card-carousel').offsetWidth;
+      return Math.floor(carouselWidth / (card.offsetWidth + gap));
+    }
+
+    function updateSlider() {
+      const cardWidth = card.offsetWidth + gap;
+      slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    function slideNext() {
+      const totalCards = slider.querySelectorAll('.product-card').length;
+      if (currentIndex < totalCards - getVisibleCards()) {
+        currentIndex++;
+        updateSlider();
+      }
+    }
+
+    function slidePrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    }
+
+    leftBtn.addEventListener('click', slidePrev);
+    rightBtn.addEventListener('click', slideNext);
+
+    window.addEventListener('resize', updateSlider);
+
+    updateSlider(); // Init
+  });
+</script>
+
+    <script>
+        // Rating system
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                const rating = index + 1;
+                ratingInput.value = rating;
+                
+                stars.forEach((s, i) => {
+                    if (i < rating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+
+            star.addEventListener('mouseover', () => {
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.style.color = '#f39c12';
+                    } else {
+                        s.style.color = '#ddd';
+                    }
+                });
+            });
+        });
+
+        document.querySelector('.rating-stars').addEventListener('mouseleave', () => {
+            const currentRating = parseInt(ratingInput.value);
+            stars.forEach((s, i) => {
+                if (i < currentRating) {
+                    s.style.color = '#f39c12';
+                } else {
+                    s.style.color = '#ddd';
+                }
+            });
+        });
+
+        // Social media functions
+        function openSocial(platform) {
+            const links = {
+                facebook: 'https://facebook.com/pennyjuice',
+                twitter: 'https://twitter.com/pennyjuice',
+                phone: 'tel:+1-234-567-8900',
+                email: 'mailto:info@pennyjuice.com',
+                fax: 'tel:+1-234-567-8901'
+            };
+            
+            if (links[platform]) {
+                if (platform === 'phone' || platform === 'email' || platform === 'fax') {
+                    window.location.href = links[platform];
+                } else {
+                    window.open(links[platform], '_blank');
+                }
+            }
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            alert(`Thank you ${data.name}! Your message has been sent. We'll get back to you soon!`);
+            
+            // Reset form
+            this.reset();
+            ratingInput.value = '0';
+            stars.forEach(s => s.classList.remove('active'));
+        });
+
+        // Navigation hover effects
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(-2px)';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+	<script>
+        function toggleDropdown(header) {
+            const socialItem = header.parentElement;
+            const isActive = socialItem.classList.contains('active');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.social-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current dropdown
+            if (!isActive) {
+                socialItem.classList.add('active');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.social-item')) {
+                document.querySelectorAll('.social-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
+
+        // Prevent dropdown from closing when clicking inside the dropdown content
+        document.querySelectorAll('.dropdown-content').forEach(content => {
+            content.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+
+        // Add smooth scroll behavior for better UX
+        document.querySelectorAll('.social-header').forEach(header => {
+            header.addEventListener('click', function() {
+                setTimeout(() => {
+                    if (this.parentElement.classList.contains('active')) {
+                        this.parentElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest'
+                        });
+                    }
+                }, 100);
+            });
+        });
+    </script>
+	<script>
+	// Get the button
+	let mybutton = document.getElementById("myBtn");
+
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		mybutton.style.display = "block";
+	  } else {
+		mybutton.style.display = "none";
+	  }
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	  document.body.scrollTop = 0;
+	  document.documentElement.scrollTop = 0;
+	}
+	</script>
+
+</body>
+</html>

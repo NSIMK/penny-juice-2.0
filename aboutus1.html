@@ -1,0 +1,140 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Penny Juice</title>
+  <link rel="stylesheet" href="aboutus1.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <script src="https://kit.fontawesome.com/6085d9783b.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu&family=Lato:wght@400;700&family=Racing+Sans+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+
+<body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+  
+  <!-- Navigation Bar -->
+ <div class="navbar">
+    <a href="index.html" class="logo"><img src="pic/logo.png" alt="Pennyjuice Logo" /></a>
+    <nav>
+      <a href="index.html" class="gaegu-regular"><b>HOME</b></a>
+      <a href="aboutus1.html" class="gaegu-regular"><b>ABOUT US</b></a>
+      <a href="menu.html" class="gaegu-regular"><b>PRODUCTS</b></a>
+      <a href="do's and dont's.html" class="gaegu-regular"><b>DO'S & DON'TS</b></a>
+      <a href="enquiry.html" class="gaegu-regular"><b>ENQUIRY</b></a>
+	  <a href="cart.html" class="cart-icon" style="color:yellow">
+        <i class="fa-solid fa-cart-plus"></i>
+        <span id="cartBadge" class="cart-badge" style="display: none;">0</span>
+      </a>
+	</nav>
+  </div>
+
+  <!-- Banner -->
+  <div class="banner-container">
+    <img src="pic/buah2.jpg" alt="Banner" style="width:100%;">
+    <h1 class="centered gaegu-regular"><b>HELLO! WELCOME TO PENNY JUICE</b></h1>
+  </div>
+
+  <!-- About Us Section -->
+     <!-- Our Background - Part 1 -->
+  <section class="background yellow">
+    <div class="text">
+      <h2>Our Background</h2>
+      <p>We provide a variety of flavors that all kids can enjoy! All the juice concentrates that we sell are compliant with the USDA and FDA guidelines. You don't need to refrigerate the concentrates before or after opening them.</p>
+    </div>
+    <div class="image">
+      <img src="pic/aboutus1.webp" alt="Juice Image" />
+    </div>
+  </section>
+
+  <!-- Our Background - Part 2 -->
+  <section class="background pink">
+    <div class="image">
+      <img src="pic/aboutus2.webp" alt="Childcare Juice" />
+    </div>
+    <div class="text">
+      <h2>Our Background</h2>
+      <p>If you're running a childcare center and want to serve healthy beverages to kids every day, order quality juice concentrates from Penny Juice of America.<br><br>
+      Our system is fast and easy to use. Penny Juice greatly reduces storage and handling requirements. 1 gallon pre-measured mix pitchers available to assure cost control and flavor consistency.</p>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="review-section">
+  <h2 class="review-title">REVIEWS</h2>
+  <div class="review-carousel">
+    <div class="review-card">
+      <p class="review-text">"Thank you for the opportunity to let everyone know about your terrific company! It's easy to store and mix and we received great service!"</p>
+      <p class="review-author">Bonnie Green<br><span>St. Francis, MN</span></p>
+    </div>
+    <div class="review-card">
+      <p class="review-text">"The children at Kid Kollege love the taste and drink Penny Juice without encouragement from our teachers. I like Penny Juice for that reason."</p>
+      <p class="review-author">Roberta Casas<br><span>Billings, MT</span></p>
+    </div>
+    <div class="review-card">
+      <p class="review-text">"I have been using Penny Juice at my childcare centre for 2 years. The children love all the fun colors. I have recommended Penny Juice to other childcare directors in the area."</p>
+      <p class="review-author">Jese Leos<br><span>Greenwood Village, CO</span></p>
+    </div>
+    <div class="review-card">
+      <p class="review-text">"Penny Juice always manages to provide friendly and professional service. This is why I keep coming back to them after many years, I find the company reliable and trustworthy."</p>
+      <p class="review-author">Joseph McFall<br><span>Saint Peter, MN</span></p>
+    </div>
+  </div>
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer lato-regular">
+    <div class="footer-content">
+      <p class="lato-regular">&copy; 2025 Penny Juice. It Makes Cents.</p>
+      <p class="lato-regular">The content on this website is owned by us and our licensors. Do not copy any content (including images) without our consent.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Slideshow -->
+  <script>
+  const carousel = document.querySelector('.review-carousel');
+  const cards = document.querySelectorAll('.review-card');
+  let index = 0;
+
+  function showSlide(i) {
+    const cardWidth = cards[0].offsetWidth + 20; // include gap
+    carousel.style.transform = `translateX(-${i * cardWidth}px)`;
+  }
+
+  document.querySelector('.next').addEventListener('click', () => {
+    index = (index + 1) % cards.length;
+    showSlide(index);
+  });
+
+  document.querySelector('.prev').addEventListener('click', () => {
+    index = (index - 1 + cards.length) % cards.length;
+    showSlide(index);
+  });
+  </script>
+  <script>
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penny Juice - Checkout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f4d03f, #f7dc6f);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background-color: #5f9ea0;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 20px;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            max-width: 250px;
+            object-fit: contain;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        /* Left Column - Forms */
+        .checkout-form {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        /* Shipping Options */
+        .shipping-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .shipping-option {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .shipping-option:hover {
+            border-color: #3498db;
+        }
+
+        .shipping-option.selected {
+            border-color: #3498db;
+            background-color: #f8f9fa;
+        }
+
+        .shipping-radio {
+            margin-right: 10px;
+        }
+
+        .shipping-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .shipping-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #27ae60;
+            float: right;
+            margin-top: -20px;
+        }
+
+        .shipping-details {
+            font-size: 12px;
+            color: #7f8c8d;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        /* Payment Options */
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .payment-option {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .payment-option:hover {
+            border-color: #3498db;
+        }
+
+        .payment-option.selected {
+            border-color: #3498db;
+            background-color: #f8f9fa;
+        }
+
+        .payment-radio {
+            margin-right: 15px;
+        }
+
+        .payment-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Right Column - Order Summary */
+        .order-summary {
+            background: white;
+            border: 3px solid #2c3e50;
+            border-radius: 10px;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .summary-title {
+            color: #2c3e50;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #34495e;
+        }
+
+        .item-name {
+            color: #2c3e50;
+        }
+
+        .item-price {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        /* Pay Now Button */
+        .pay-btn {
+            width: 100%;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background-color 0.3s;
+        }
+
+        .pay-btn:hover {
+            background-color: #34495e;
+        }
+
+        .pay-btn:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        /* Loading State */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary {
+                position: relative;
+                top: 0;
+                order: -1;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <button class="back-btn" onclick="goBack()">←</button>
+            <a href="index.html" class="logo">
+                <img src="pic/logo.png" alt="Pennyjuice Logo" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'color:white;font-size:18px;font-weight:bold;\'>Penny Juice</span>'" />
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Left Column - Checkout Form -->
+        <div class="checkout-form">
+            <form id="checkoutForm">
+                <!-- Contact Information -->
+                <div class="form-section">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Email" id="email" required>
+                    </div>
+                </div>
+
+                <!-- Delivery Information -->
+                <div class="form-section">
+                    <h2 class="section-title">Delivery</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Country" id="country" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <input type="text" class="form-input" placeholder="First Name" id="firstName" required>
+                            <input type="text" class="form-input" placeholder="Last Name" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Address Line 1" id="address1" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" placeholder="Address Line 2" id="address2">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row-3">
+                            <input type="text" class="form-input" placeholder="Postcode" id="postcode" required>
+                            <input type="text" class="form-input" placeholder="City" id="city" required>
+                            <input type="text" class="form-input" placeholder="State" id="state" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-input" placeholder="Phone Number" id="phone" required>
+                    </div>
+                </div>
+
+                <!-- Shipping Method -->
+                <div class="form-section">
+                    <h2 class="section-title">Shipping method</h2>
+                    <div class="shipping-options">
+                        <div class="shipping-option selected" data-shipping="fedex">
+                            <input type="radio" name="shipping" value="fedex" class="shipping-radio" checked>
+                            <div class="shipping-title">FedEx</div>
+                            <div class="shipping-price">RM 15</div>
+                        </div>
+                        <div class="shipping-option" data-shipping="pickup">
+                            <input type="radio" name="shipping" value="pickup" class="shipping-radio">
+                            <div class="shipping-title">Self-Pickup</div>
+                            <div class="shipping-price">RM 0</div>
+                            <div class="shipping-details">
+                                Item ready pickup at store<br>
+                                Penny Juice of America<br>
+                                Sri 26th Ave Bethlehem<br>
+                                PA 18017
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-section">
+                    <h2 class="section-title">Payment</h2>
+                    <div class="payment-options">
+                        <div class="payment-option selected" data-payment="online-banking">
+                            <input type="radio" name="payment" value="online-banking" class="payment-radio" checked>
+                            <div class="payment-title">Online Banking</div>
+                        </div>
+                        <div class="payment-option" data-payment="bank-transfer">
+                            <input type="radio" name="payment" value="bank-transfer" class="payment-radio">
+                            <div class="payment-title">Bank Transfer/Cash Deposit</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="pay-btn" id="payBtn">Pay Now</button>
+            </form>
+
+            <!-- Loading State -->
+            <div class="loading" id="loadingState">
+                <div class="spinner"></div>
+                <p>Redirecting to payment gateway...</p>
+            </div>
+        </div>
+
+        <!-- Right Column - Order Summary -->
+        <div class="order-summary">
+            <h2 class="summary-title">Order Summary</h2>
+            <div id="orderItems">
+                <!-- Order items will be populated here -->
+            </div>
+            <div class="summary-item">
+                <span class="item-name">Subtotal:</span>
+                <span class="item-price" id="subtotalPrice">RM17.40</span>
+            </div>
+            <div class="summary-item">
+                <span class="item-name">Shipping:</span>
+                <span class="item-price" id="shippingPrice">RM15.00</span>
+            </div>
+            <div class="summary-item">
+                <span class="item-name">Total:</span>
+                <span class="item-price" id="totalPrice">RM32.40</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Get cart from localStorage
+function getCart() {
+  try {
+    const cartData = localStorage.getItem('pennyJuiceCart');
+    return cartData ? JSON.parse(cartData) : [];
+  } catch (error) {
+    console.error('Error loading cart:', error);
+    return [];
+  }
+}
+
+// Load order data from cart
+function loadOrderFromCart() {
+  const cartData = getCart();
+  
+  if (cartData.length === 0) {
+    // If cart is empty, redirect back to cart page
+    alert('Your cart is empty! Please add items to your cart first.');
+    window.location.href = 'cart.html';
+    return null;
+  }
+  
+  // Calculate subtotal
+  const subtotal = cartData.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  
+  // Create order data structure
+  const orderData = {
+    items: cartData.map(item => ({
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+      size: item.size || ''
+    })),
+    subtotal: subtotal,
+    shipping: 15.00, // Default shipping cost
+    total: subtotal + 15.00 // Will be updated based on shipping method
+  };
+  
+  return orderData;
+}
+
+let orderData = null;
+let selectedShipping = 'fedex';
+let selectedPayment = 'online-banking';
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', function() {
+  // Load order data from cart
+  orderData = loadOrderFromCart();
+  
+  if (orderData) {
+    populateOrderSummary();
+    setupEventListeners();
+    
+    // Auto-fill some demo data (you can remove this in production)
+    document.getElementById('country').value = '';
+    document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('email').value = '';
+  }
+});
+
+// Setup event listeners
+function setupEventListeners() {
+  // Shipping options
+  document.querySelectorAll('.shipping-option').forEach(option => {
+    option.addEventListener('click', function() {
+      selectShipping(this.dataset.shipping);
+    });
+  });
+
+  // Payment options
+  document.querySelectorAll('.payment-option').forEach(option => {
+    option.addEventListener('click', function() {
+      selectPayment(this.dataset.payment);
+    });
+  });
+}
+
+// Populate order summary
+function populateOrderSummary() {
+  if (!orderData) return;
+  
+  const orderItems = document.getElementById('orderItems');
+  orderItems.innerHTML = '';
+
+  orderData.items.forEach(item => {
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'summary-item';
+    
+    // Include size in display if available
+    const itemName = item.size ? `${item.name} (${item.size})` : item.name;
+    
+    itemDiv.innerHTML = `
+      <span class="item-name">${itemName} x${item.quantity}</span>
+      <span class="item-price">RM${(item.price * item.quantity).toFixed(2)}</span>
+    `;
+    orderItems.appendChild(itemDiv);
+  });
+
+  updatePricing();
+}
+
+// Select shipping method
+function selectShipping(method) {
+  selectedShipping = method;
+  
+  // Update radio buttons and styling
+  document.querySelectorAll('.shipping-option').forEach(option => {
+    option.classList.remove('selected');
+    option.querySelector('input').checked = false;
+  });
+  
+  const selectedOption = document.querySelector(`[data-shipping="${method}"]`);
+  selectedOption.classList.add('selected');
+  selectedOption.querySelector('input').checked = true;
+
+  updatePricing();
+}
+
+// Select payment method
+function selectPayment(method) {
+  selectedPayment = method;
+  
+  // Update radio buttons and styling
+  document.querySelectorAll('.payment-option').forEach(option => {
+    option.classList.remove('selected');
+    option.querySelector('input').checked = false;
+  });
+  
+  const selectedOption = document.querySelector(`[data-payment="${method}"]`);
+  selectedOption.classList.add('selected');
+  selectedOption.querySelector('input').checked = true;
+}
+
+// Update pricing based on shipping selection
+function updatePricing() {
+  if (!orderData) return;
+  
+  const shippingCost = selectedShipping === 'pickup' ? 0 : 15.00;
+  const total = orderData.subtotal + shippingCost;
+
+  document.getElementById('subtotalPrice').textContent = `RM${orderData.subtotal.toFixed(2)}`;
+  document.getElementById('shippingPrice').textContent = `RM${shippingCost.toFixed(2)}`;
+  document.getElementById('totalPrice').textContent = `RM${total.toFixed(2)}`;
+  
+  orderData.shipping = shippingCost;
+  orderData.total = total;
+}
+
+// Handle form submission
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Validate form
+  if (!validateForm()) {
+    return;
+  }
+
+  // Collect form data
+  const formData = {
+    contact: {
+      email: document.getElementById('email').value
+    },
+    delivery: {
+      country: document.getElementById('country').value,
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      address1: document.getElementById('address1').value,
+      address2: document.getElementById('address2').value,
+      postcode: document.getElementById('postcode').value,
+      city: document.getElementById('city').value,
+      state: document.getElementById('state').value,
+      phone: document.getElementById('phone').value
+    },
+    shipping: selectedShipping,
+    payment: selectedPayment,
+    order: orderData
+  };
+
+  // Show loading state
+  document.getElementById('checkoutForm').style.display = 'none';
+  document.getElementById('loadingState').style.display = 'block';
+
+  // Simulate processing and redirect to bank
+  setTimeout(() => {
+    redirectToBank(formData);
+  }, 2000);
+});
+
+// Validate form
+function validateForm() {
+  const requiredFields = ['email', 'country', 'firstName', 'lastName', 'address1', 'postcode', 'city', 'state', 'phone'];
+  
+  for (let field of requiredFields) {
+    const element = document.getElementById(field);
+    if (!element.value.trim()) {
+      element.focus();
+      alert(`Please fill in the ${field.replace(/([A-Z])/g, ' $1').toLowerCase()} field.`);
+      return false;
+    }
+  }
+
+  // Validate email
+  const email = document.getElementById('email').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    document.getElementById('email').focus();
+    alert('Please enter a valid email address.');
+    return false;
+  }
+
+  return true;
+}
+
+// Redirect to bank login (external payment gateway)
+function redirectToBank(orderData) {
+  // In a real application, this would redirect to the actual bank's payment gateway
+  // For demo purposes, we'll show an alert and simulate the redirect
+  
+  const bankUrls = {
+    'online-banking': 'https://demo-bank-login.com/payment',
+    'bank-transfer': 'https://demo-bank-transfer.com/deposit'
+  };
+
+  const paymentMethod = selectedPayment;
+  const bankUrl = bankUrls[paymentMethod];
+
+  alert(`Order submitted successfully!\n\nYou will now be redirected to the bank's secure payment portal.\n\nOrder Total: RM${orderData.order.total.toFixed(2)}\nPayment Method: ${paymentMethod.replace('-', ' ').toUpperCase()}`);
+
+  // In a real application, you would:
+  // 1. Send order data to your backend
+  // 2. Get payment session/token from payment gateway
+  // 3. Redirect to bank's payment URL with session token
+  
+  // For demo, we'll simulate the redirect
+  console.log('Order Data:', orderData);
+  console.log('Redirecting to:', bankUrl);
+  
+  // Simulate redirect (in real app, use window.location.href = bankUrl)
+  alert(`Redirecting to: ${bankUrl}\n\n(In a real application, you would be redirected to the bank's login page now)`);
+  
+  // Clear cart after successful order (optional)
+  if (confirm('Order completed! Would you like to clear your cart?')) {
+    localStorage.removeItem('pennyJuiceCart');
+    alert('Thank you for your order! Your cart has been cleared.');
+    window.location.href = 'index.html'; // Redirect to home page
+  } else {
+    // Reset form for demo
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('checkoutForm').style.display = 'block';
+  }
+}
+
+// Go back to cart
+function goBack() {
+  if (confirm('Are you sure you want to go back? Your progress will be lost.')) {
+    window.location.href = 'cart.html';
+  }
+}
+    </script>
+</body>
+</html>

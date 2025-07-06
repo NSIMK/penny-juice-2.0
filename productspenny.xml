@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="productspenny.xsl"?>
+
+     <products>
+	    <details>
+		    <productname>Strawberry Splash</productname>
+            <description>Dive into the refreshing burst of Strawberry Splash, a perfectly balanced blend of ripe strawberries and icy coolness that invigorates your senses and quenches your thirst.</description>
+            <size1>
+                 <price>RM 15.40</price>
+            </size1>
+            <size2>
+                 <price>RM 12.40</price>
+			</size2>
+		</details>
+	 
+	   <details>
+           <productname>Carrot Punch</productname>
+           <description>A rich and creamy Caribbean classic, Carrot Punch blends freshly grated carrots with warm spices like cinnamon and nutmeg, sweetened with condensed milk for a smooth, indulgent texture.</description>
+           <size1>
+                 <price>RM 14.20</price>
+           </size1>
+           <size2>
+                 <price>RM 11.20</price>
+		   </size2>
+       </details>
+	   
+	   <details>
+          <productname>Orange Splash</productname>
+          <description>A vibrant and zesty blend of freshly squeezed oranges and tropical sweetness.</description>
+          <size1>
+                <price>RM 11.50</price>
+          </size1>
+          <size2>
+                <price>RM 8.50</price>
+          </size2>
+       </details>
+	   
+	   <details>
+           <productname>Tropical Punch</productname>
+           <description>A lively medley of exotic fruits like pineapple, mango, and passionfruit combined to create a sweet and tangy tropical sensation.</description>
+           <size1>
+               <price>RM 15.40</price>
+           </size1>
+           <size2>
+               <price>RM 12.40</price>
+           </size2>
+       </details>
+  
+        <details>
+            <productname>Apple Crush</productname>
+            <description>A crisp and refreshing beverage made from freshly pressed apples, offering a perfect balance of sweet and tart flavors.</description>
+            <size1>
+                 <price>RM 13.40</price>
+            </size1>
+            <size2>
+                 <price>RM 10.40</price>
+            </size2>
+        </details>
+  
+        <details>
+            <productname>Lime Squeeze</productname>
+            <description>A sharp and tangy lime-based drink delivering a burst of citrusy freshness. Perfect for those who enjoy a zesty, invigorating beverage with a clean, crisp finish.</description>
+            <size1>
+                 <price>RM 10.50</price>
+            </size1>
+            <size2>
+                 <price>RM 7.50</price>
+            </size2>
+        </details>
+  
+        <details>
+           <productname>Berries</productname>
+           <description>A blend of blueberries and raspberries—offering a sweet, slightly tart flavor profile.</description>
+           <size1>
+                <price>RM 13.60</price>
+           </size1>
+           <size2>
+                <price>RM 10.60</price>
+           </size2>
+        </details>
+	   
+	    <details>
+            <productname>Peach Drink</productname>
+            <description>A smooth and sweet peach-flavored drink capturing the juicy essence of ripe peaches.</description>
+           <size1>
+                 <price>RM 17.90</price>
+           </size1>
+           <size2>
+                 <price>RM 14.90</price>
+           </size2>
+        </details>
+  
+        <details>
+            <productname>Mango Twist</productname>
+            <description>A tropical delight featuring ripe mangoes blended into a creamy, sweet drink with a hint of citrus.</description>
+            <size1>
+                  <price>RM 10.40</price>
+            </size1>
+            <size2>
+                  <price>RM 7.40</price>
+            </size2>
+	    </details>
+</products>
+
+
+	
